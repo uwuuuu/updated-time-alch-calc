@@ -1,7 +1,7 @@
 # Kastia Time Alchemy Calculator
 
-1. Install Python (Recommend 3.6+) from: https://www.python.org/downloads/
-2. Clone/Download
+1. Install Python (I recommend 3.6+) from: https://www.python.org/downloads/
+2. Clone/Download https://github.com/jason-sees/time-alch-calc
 3. Extract the pyfiles folder onto your desktop (or other location)
 4. Double click 'Time Alchemy Calculator.py'
 
