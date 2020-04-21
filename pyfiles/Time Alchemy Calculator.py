@@ -381,7 +381,7 @@ def onselect(evt):
         item_name.configure(text=value)
 
 def open_forums():
-    webbrowser.open('https://kastia.ms/forum/') 
+    webbrowser.open('https://kastia.ms/forum/viewtopic.php?f=10&t=2898') 
 
 def check(item):
     global total_raw_mats
