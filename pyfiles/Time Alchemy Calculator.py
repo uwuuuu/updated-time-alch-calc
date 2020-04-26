@@ -20,21 +20,7 @@ master=dicts.master
 all_tiers=dicts.all_tiers
 enc_dict = image_enc.image_enc
 sub_base = dicts.sub_base
-sub_base2 = dicts.sub_base2
-
-##for item in all_tiers:
-##    j = item+".gif"
-##    with open(j, "rb") as image_file:
-##        encoded_string = base64.b64encode(image_file.read())
-##        enc_dict[item]=encoded_string#print string to copy it (see step 2)
-##
-##for item in master:
-##    j = item+".gif"
-##    with open(j, "rb") as image_file:
-##        encoded_string = base64.b64encode(image_file.read())
-##        enc_dict[item]=encoded_string#print string to copy it (see step 2)
-##print(enc_dict, file=open("dict.txt","a"))
-        
+sub_base2 = dicts.sub_base2    
 
 craftables = dicts.craftables
 desc = dicts.desc
@@ -58,20 +44,6 @@ total_mats = {}
 total_raw_mats = {}
 total_raw2={}
 
-
-
-##for item in super_dict:
-##    for x in super_dict[item]:
-##        item2 = x
-##        for part in item2.split("|"):
-##            parts = part.split(",")
-##            if parts[0] not in super_dict:
-##                if parts[0] not in rawest:
-##                    rawest.append(parts[0])
-##
-##print(rawest)
-##        
-##        
 
 def find_succ(item):
     if item in materials_dict:
@@ -279,6 +251,7 @@ def right(event, mat):
         update_buttons()
     populate_list(mat)
     populate_raw()
+    refresh_raw()
 
 def update_buttons():
     for btn in btn_dict:
@@ -439,6 +412,11 @@ def test(event):
     calc_rate()
     return 'break'
 
+
+
+
+
+
 # Create window object
 app = Tk()
 app.title('Kastia Time Alchemy Calculator')
@@ -566,7 +544,7 @@ master_frame11.grid(column=2,row=1, sticky="wens")
 
 blankframe=LabelFrame(master_frame10, text="NOTE:",font=("Helvetica", 10),background='#ffe4de')
 blankframe.grid(padx=5, pady=5, column=2, row=0,sticky='wesn')
-howto1 = Label(blankframe,background='#ffe4de', text="The Raw Materials section isn't completely finished yet.\nRemoving an item from the Selections or the\nBase Materials list won't remove it from the list of\nRaw Materials. Please use the 'Refresh' button to\nrefresh the Raw Materials list accordingly. This is\nbecause I suck at coding.")
+howto1 = Label(blankframe,background='#ffe4de', text="")
 howto1.grid(padx=5, pady=5)
 
 rawframe=LabelFrame(master_frame11, text="Raw Functions",font=("Helvetica", 10),background='#ffe4de')
