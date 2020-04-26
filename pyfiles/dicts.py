@@ -163,7 +163,7 @@ desc = {'Blue Emerald':"Success Rate: +4\nMax Per Item: 2\nCan be used on any eq
         }
 
 
-tier1cost={"Blue Emerald":"Black Scroll (Level 1),1|Opal,3|Sapphire,3|Emerald,3|Elixir of Purity,1",
+tier1cost={"Blue Emerald":"Black Scroll (Level 1),1|Opal,3|Sapphire,3|Aquamarine,3|Emerald,3|Elixir of Purity,1",
            "Droplet of Strength":"Black Scroll (Level 1),1|Power Crystal,2|Basic Spell Essence,3|Elixir of Purity,1",
            "Mana Shard":"Black Scroll (Level 1),1|Wisdom Crystal,2|Depleted Crystal,3|Mana Crystal,4",
            "Time Sand":"Black Scroll (Level 1),1|Power Crystal,1|Wisdom Crystal,1|DEX Crystal,1|LUK Crystal,1|Twisted Time,50|Piece of Time,10|Elixir of Purity,1",
