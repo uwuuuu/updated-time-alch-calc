@@ -7,6 +7,11 @@ tier3=['Piece of Courage','Piece of Dexterity','Crystal Shard','Potent Wind Crys
 tier4=['Evil Hammer','Chaos Stone','Dire Fang',"Angel's Charm","Moonlight's Flower"]
 all_tiers=tier1+tier2+tier3+tier4
 
+flat_cata={"Time Sand":"STATS,9","Life Essence":"STATS,-7","Star Crystal":"STATS,25|WATT,18|MATT,18","Droplet of Strength":"WATT,6","Mana Shard":"MATT,6","Wind Crystal":"WATT,7|MATT,7"
+           ,"Potent Wind Crystal":"WATT,13|MATT,13","Stabilizer Crystal":"STATS,-6|WATT,-3|MATT,-3","Elysium's Tear":"STATS,27","Frozen Heart":"STATS,-17","Chaos Stone":"STATS,-12|WATT,-7|MATT,-7"}
+
+per_cata={"Dark Soul Stone":"WATT,0.06","Ice Crystal":"MATT,0.06","Blood Ruby":"WATT,0.2|MATT,0.2","Crystal of Dreams":"WATT,0.05|MATT,0.05","Shadow Orb":"WATT,0.15|MATT,0.15|STATS,0.3"
+              }
 
 sub_base = ['NX Cash', 'Twisted Time', 'Mana Crystal', 'Depleted Crystal', 'Viridium Plate', 'Elixir of Haste', 'Elixir of Purity',
             'Confusion Fragment', 'Gold Plate', 'Dream Fragment', 'Superior Item Crystal', 'Elixir of Caution', 'Elixir of Rage',
