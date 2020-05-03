@@ -17,6 +17,9 @@ tier3=dicts.tier3
 tier4=dicts.tier4
 master=dicts.master
 
+flat_cata=dicts.flat_cata
+per_cata=dicts.per_cata
+
 all_tiers=dicts.all_tiers
 enc_dict = image_enc.image_enc
 sub_base = dicts.sub_base
@@ -267,6 +270,7 @@ def clear():
     global total_raw_mats
     global item_lab
     global item_name
+    global stat1_in
     total_success_rate=0
     total_list={}
     total_raw_mats={}
@@ -277,6 +281,18 @@ def clear():
     update_buttons()
     custom_rate2.configure(text="")
     success_counter.config(text="+0",fg="#2d8a57")
+    stat1_in.delete('1.0',END)
+    stat2_in.delete('1.0',END)
+    stat3_in.delete('1.0',END)
+    stat4_in.delete('1.0',END)
+    stat5_in.delete('1.0',END)
+    stat6_in.delete('1.0',END)
+    post_stat1_val.config(text="0")
+    post_stat2_val.config(text="0")
+    post_stat3_val.config(text="0")
+    post_stat4_val.config(text="0")
+    post_stat5_val.config(text="0")
+    post_stat6_val.config(text="0")
     item_lab.pack_forget()
     item_name.pack_forget()
     item_lab = Label(item_frame, borderwidth=3, image="",font=("Helvetica", 10))
@@ -407,14 +423,110 @@ def calc_rate():
         tot="0"
     custom_rate2.configure(text=str(tot)+"%")
 
+
 def test(event):
     a1 = e1.get(1.0, END)
     calc_rate()
     return 'break'
 
+def test2(event):
+    a1 = e1.get(1.0, END)
+    return 'break'
 
+def focus_next_widget(event):
+    event.widget.tk_focusNext().focus()
+    return("break")
 
+def calc_stats():
+    global flat_cata
+    global per_cata
 
+    stat_calc_dict = {}
+    mult_calc_dict = {}
+
+    for item in total_list:
+        if item in flat_cata:
+            parts = flat_cata[item].split("|")
+            for piece in parts:
+                for i in range(int(total_list[item])):
+                    if piece.split(",")[0] not in stat_calc_dict:
+                        stat_calc_dict[piece.split(",")[0]] = int(piece.split(",")[1])
+                    else:
+                        stat_calc_dict[piece.split(",")[0]] += int(piece.split(",")[1])
+
+        elif item in per_cata:
+            parts = per_cata[item].split("|")
+            for piece in parts:
+                for i in range(int(total_list[item])):
+                    if piece.split(",")[0] not in mult_calc_dict:
+                        mult_calc_dict[piece.split(",")[0]] = 1.0 + eval(piece.split(",")[1])
+                    else:
+                        mult_calc_dict[piece.split(",")[0]] += eval(piece.split(",")[1])
+
+    stat_str = stat1_in.get("1.0",END).strip()
+    stat_dex = stat2_in.get("1.0",END).strip()
+    stat_int = stat3_in.get("1.0",END).strip()
+    stat_luk = stat4_in.get("1.0",END).strip()
+    stat_watt = stat5_in.get("1.0",END).strip()
+    stat_matt = stat6_in.get("1.0",END).strip()
+
+    if stat_str == "":
+        stat_str=0
+    else:
+        stat_str=int(stat_str)
+    if stat_dex == "":
+        stat_dex=0
+    else:
+        stat_dex=int(stat_dex)
+    if stat_int == "":
+        stat_int=0
+    else:
+        stat_int=int(stat_int)
+    if stat_luk == "":
+        stat_luk=0
+    else:
+        stat_luk=int(stat_luk)
+    if stat_watt == "":
+        stat_watt=0
+    else:
+        stat_watt=int(stat_watt)
+    if stat_matt == "":
+        stat_matt=0
+    else:
+        stat_matt=int(stat_matt)
+
+    #print(stat_str,stat_dex,stat_int, stat_luk, stat_watt,stat_matt)
+
+    for stat in stat_calc_dict:
+        if stat == "STATS":
+            stat_str += stat_calc_dict[stat]
+            stat_dex += stat_calc_dict[stat]
+            stat_int += stat_calc_dict[stat]
+            stat_luk += stat_calc_dict[stat]
+        if stat == "WATT":
+            stat_watt += stat_calc_dict[stat]
+        if stat == "MATT":
+            stat_matt += stat_calc_dict[stat]
+
+    for stat in mult_calc_dict:
+        if stat == "STATS":
+            stat_str = stat_str * round(mult_calc_dict[stat],2)
+            stat_dex = stat_dex * round(mult_calc_dict[stat],2)
+            stat_int = stat_int * round(mult_calc_dict[stat],2)
+            stat_luk = stat_luk * round(mult_calc_dict[stat],2)
+        if stat == "WATT":
+            stat_watt = stat_watt * round(mult_calc_dict[stat],2)
+        if stat == "MATT":
+            stat_matt = stat_matt * round(mult_calc_dict[stat],2)
+
+    post_stat1_val.config(text=str(int(stat_str)))
+    post_stat2_val.config(text=str(int(stat_dex)))
+    post_stat3_val.config(text=str(int(stat_int)))
+    post_stat4_val.config(text=str(int(stat_luk)))
+    post_stat5_val.config(text=str(int(stat_watt)))
+    post_stat6_val.config(text=str(int(stat_matt)))
+        
+    pass
 
 
 # Create window object
@@ -425,16 +537,26 @@ app.title('Kastia Time Alchemy Calculator')
 master_frame=LabelFrame(app,font=("Helvetica", 10))
 master_frame.grid(column=0,row=0,sticky="nesw")
 
-master_frame2=LabelFrame(app,font=("Helvetica", 10))
-master_frame2.grid(column=0,row=1,sticky="nw")
 master_frame3=LabelFrame(app,width=0,font=("Helvetica", 10))
 master_frame3.grid(column=1,row=0, sticky="wens")
-master_frame4=LabelFrame(app,width=0,font=("Helvetica", 10))
-master_frame4.grid(column=1,row=1, sticky="wens")
-master_frame5=LabelFrame(app,width=0,font=("Helvetica", 10))
-master_frame5.grid(column=0,row=2, sticky="wens")
-master_frame6=LabelFrame(app,width=0,font=("Helvetica", 10))
-master_frame6.grid(column=1,row=2, sticky="wens")
+
+master3_sub1=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub1.grid(column=0,row=0, sticky="wens")
+master3_sub2=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub2.grid(column=0,row=1, sticky="wens")
+master3_sub3=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub3.grid(column=0,row=2, sticky="wens")
+master3_sub4=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub4.grid(column=1,row=0, sticky="wens")
+master3_sub5=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub5.grid(column=1,row=1, sticky="wens")
+master3_sub6=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub6.grid(column=1,row=2, sticky="wens")
+master3_sub7=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub7.grid(column=1,row=3, sticky="wens")
+master3_sub8=LabelFrame(master_frame3,width=0,font=("Helvetica", 10))
+master3_sub8.grid(column=1,row=4, sticky="wens")
+
 
 frame1 = LabelFrame(master_frame, text="Tier 1",font=("Helvetica", 10))
 frame1.grid(column = 0,row=0, sticky="W", padx=5, pady=5)
@@ -442,23 +564,22 @@ frame2 = LabelFrame(master_frame, text="Tier 2",font=("Helvetica", 10))
 frame2.grid(column = 0,row=1, sticky="W", padx=5, pady=5)
 
 
-frame3 = LabelFrame(master_frame2, text="Tier 3",font=("Helvetica", 10))
+frame3 = LabelFrame(master_frame, text="Tier 3",font=("Helvetica", 10))
 frame3.grid(column = 0,row=2, sticky="W", padx=5, pady=5)
-frame4 = LabelFrame(master_frame2, text="Unique",font=("Helvetica", 10))
+frame4 = LabelFrame(master_frame, text="Unique",font=("Helvetica", 10))
 frame4.grid(column = 0,row=3, sticky="W", padx=5, pady=5)
 
-frame5 = LabelFrame(master_frame3, text="Selections",font=("Helvetica", 10))
+frame5 = LabelFrame(master3_sub1, text="Selections",font=("Helvetica", 10))
 frame5.grid(column = 0,row=0, sticky="wnes", padx=5, pady=5)
 
 
-mat_frame = LabelFrame(master_frame5, text="Materials",font=("Helvetica", 10))
-mat_frame.grid(column = 0,row=0, sticky="W", padx=5, pady=5)
+mat_frame = LabelFrame(master_frame, text="Materials",font=("Helvetica", 10))
+mat_frame.grid(column = 0,row=4, sticky="W", padx=5, pady=5)
 
-success_frame=LabelFrame(master_frame4)
-success_frame.pack(expand=False, fill=X)
-
-success_frame3=LabelFrame(master_frame4)
-success_frame3.pack(expand=False, fill=X)
+success_frame=LabelFrame(master3_sub2)
+success_frame.pack(fill=X, expand=FALSE)
+success_frame3=LabelFrame(master3_sub2)
+success_frame3.pack(fill=X, expand=FALSE)
 
 e1_label = Label(success_frame3, borderwidth=3, image="",font=("Helvetica", 10), text="Enter your base success rate here: ")
 e1_label.grid(column=0, row=0,pady=5, padx=5)
@@ -489,12 +610,9 @@ forum_post.grid(column = 0, row=0, padx=3, pady=3, sticky="w")
 copyraw = Button(frame7,text="Copy raw materials",command=copy_raw_only)
 copyraw.grid(column = 1, row=1, padx=3, pady=3, sticky="w")
 
-itemi_frame=LabelFrame(master_frame4)
-itemi_frame.pack(expand=False,fill=X)
-itemi_frame.columnconfigure(1, weight=1)
 
-item_frame=LabelFrame(master_frame5, text="Item Info",font=("Helvetica", 10))
-item_frame.grid()
+item_frame=LabelFrame(master3_sub4, text="Item Info",font=("Helvetica", 10))
+item_frame.grid(padx=5,pady=5)
 item_lab = Label(item_frame, borderwidth=3, image="",font=("Helvetica", 10))
 item_lab.pack(side=LEFT, padx=10, pady=10,anchor=W, fill="both")
 item_name = Label(item_frame, borderwidth=3,text="Left click button = Add one\nMiddle click button = Add five\nRight click button = Remove one",font=("Helvetica", 12, "bold"))
@@ -513,7 +631,7 @@ lb.config(yscrollcommand=scrollbar.set)
 lb.bind('<<ListboxSelect>>', onselect)
 
 #base materials
-frame6=LabelFrame(master_frame6, text="Base Materials",font=("Helvetica", 10))
+frame6=LabelFrame(master3_sub3, text="Base Materials",font=("Helvetica", 10))
 frame6.grid(padx=5, pady=5, sticky='wesn')
 lb2 = Listbox(frame6, width=35, height=15,font=("Helvetica", 12),activestyle=NONE)
 lb2.pack(side = 'right',fill = 'y' )
@@ -523,32 +641,18 @@ lb2.config(yscrollcommand=scrollbar2.set)
 lb2.bind('<<ListboxSelect>>', onselect)
 
 
-master_frame9=LabelFrame(app,width=0,font=("Helvetica", 10),background='#ffe4de')
-master_frame9.grid(column=2,row=2, sticky="wens")
 #raw materials
-frame8=LabelFrame(master_frame9, text="Raw Materials",font=("Helvetica", 10),background='#ffe4de')
-frame8.grid(padx=5, pady=5, column=2, row=2,sticky='wesn')
+frame8=LabelFrame(master3_sub6, text="Raw Materials",font=("Helvetica", 10))
+frame8.grid(padx=5, pady=5, column=1, row=2,sticky='wesn')
 lb3 = Listbox(frame8, width=32, height=15,font=("Helvetica", 12),activestyle=NONE)
 lb3.pack(side = 'right',fill = 'both',expand=TRUE  )
 scrollbar3 = Scrollbar(frame8, orient="vertical",command=lb3.yview)
 scrollbar3.pack(side="right", fill="y")
 lb3.config(yscrollcommand=scrollbar3.set)
 lb3.bind('<<ListboxSelect>>', onselect)
-lb3.bind('<Double-Button>', breakdown)
 
-master_frame10=LabelFrame(app,width=0,font=("Helvetica", 10),background='#ffe4de')
-master_frame10.grid(column=2,row=0, sticky="wens")
-
-master_frame11=LabelFrame(app,width=0,font=("Helvetica", 10),background='#ffe4de')
-master_frame11.grid(column=2,row=1, sticky="wens")
-
-blankframe=LabelFrame(master_frame10, text="NOTE:",font=("Helvetica", 10),background='#ffe4de')
-blankframe.grid(padx=5, pady=5, column=2, row=0,sticky='wesn')
-howto1 = Label(blankframe,background='#ffe4de', text="")
-howto1.grid(padx=5, pady=5)
-
-rawframe=LabelFrame(master_frame11, text="Raw Functions",font=("Helvetica", 10),background='#ffe4de')
-rawframe.grid(padx=5, pady=5, column=2, row=1,sticky='wesn')
+rawframe=LabelFrame(master3_sub4, text="Raw Functions",font=("Helvetica", 10))
+rawframe.grid(padx=5, pady=5,sticky='wesn')
 
 condenseraw = Button(rawframe,text="Condense",command=condense1)
 condenseraw.grid(column = 1, row=0, padx=3, pady=3, sticky="w")
@@ -559,12 +663,101 @@ refreshraw.grid(column = 3, row=0, padx=3, pady=3, sticky="w")
 clear_all2 = Button(rawframe,text="Clear all",command=clear)
 clear_all2.grid(column = 4, row=0, padx=3, pady=3, sticky="w")
 
-howtoframe=LabelFrame(master_frame11, text="How to Use",font=("Helvetica", 10),background='#ffe4de')
-howtoframe.grid(padx=5, pady=5, column=2, row=2,sticky='wesn')
+howtoframe=LabelFrame(master3_sub5, text="How to Use",font=("Helvetica", 10))
+howtoframe.grid(padx=5, pady=5, column=1, row=1,sticky='wesn')
 
-howto = Label(howtoframe,background='#ffe4de', text="Materials highlighted in green are already in it's rawest\nform. Double click on an item in the Raw Materials list\n that isn't highlighted to break it down further.\n\nClicking 'Condense' will break the selections down into\nthe rawest form possible. It's a little slow, so be patient\nif you have a lot of catalysts/materials selected.\n\n'Refresh' will refresh the Raw Materials list to match the\nBase Materials list. Read section above to learn why\nthe Raw Materials list doesn't always update.")
+howto = Label(howtoframe, text="Materials highlighted in green are already in it's rawest\nform. Double click on an item in the Raw Materials list\n that isn't highlighted to break it down further.\n\nClicking 'Condense' will break the selections down into\nthe rawest form possible. It's a little slow, so be patient\nif you have a lot of catalysts/materials selected.\n\n'Refresh' will refresh the Raw Materials list to match the\nBase Materials list. Read section above to learn why\nthe Raw Materials list doesn't always update.")
 howto.grid(padx=5, pady=5)
 
+
+stats_frame = LabelFrame(app,width=0,font=("Helvetica", 10),background="#f7dfdc")
+stats_frame.grid(column=2,row=0, sticky="wens")
+
+how_stats = LabelFrame(stats_frame,width=0,font=("Helvetica", 10), text="How to Use",background="#f7dfdc")
+how_stats.grid(column=0,row=0, sticky="wens", padx=5, pady=5)
+pre_stats = LabelFrame(stats_frame,width=0,font=("Helvetica", 10), text="Pre Time Alchemy Stats",background="#f7dfdc")
+pre_stats.grid(column=0,row=1, sticky="wens", padx=5, pady=5)
+post_stats = LabelFrame(stats_frame,width=0,font=("Helvetica", 10), text="Post Time Alchemy Stats",background="#f7dfdc")
+post_stats.grid(column=0,row=2, sticky="wens", padx=5, pady=5)
+
+howto_stats = Label(how_stats,background="#f7dfdc", text="Enter your item's stats\nand hit Calculate to see how\nmuch Time Alchemy will\nchange your item's stats.\nCalculations assume that you\nput flat catalysts first\nand then multiplier catalysts.")
+howto_stats.grid(padx=5, pady=5)
+
+
+stat1 = Label(pre_stats,text="STR:",background="#f7dfdc")
+stat1.grid(column=0,row=0,padx=5, pady=5)
+stat1_in = Text(pre_stats,height=0, width=8)
+stat1_in.grid(column=1, row=0,pady=5, padx=5)
+stat1_in.bind("<Tab>", focus_next_widget)
+stat1_in.bind('<Return>', test2)
+
+stat2 = Label(pre_stats,text="DEX:",background="#f7dfdc")
+stat2.grid(column=0,row=1,padx=5, pady=5)
+stat2_in = Text(pre_stats,height=0, width=8)
+stat2_in.grid(column=1, row=1,pady=5, padx=5)
+stat2_in.bind("<Tab>", focus_next_widget)
+stat2_in.bind('<Return>', test2)
+
+stat3 = Label(pre_stats,text="INT:",background="#f7dfdc")
+stat3.grid(column=0,row=2,padx=5, pady=5)
+stat3_in = Text(pre_stats,height=0, width=8)
+stat3_in.grid(column=1, row=2,pady=5, padx=5)
+stat3_in.bind("<Tab>", focus_next_widget)
+stat3_in.bind('<Return>', test2)
+
+stat4 = Label(pre_stats,text="LUK:",background="#f7dfdc")
+stat4.grid(column=0,row=3,padx=5, pady=5)
+stat4_in = Text(pre_stats,height=0, width=8)
+stat4_in.grid(column=1, row=3,pady=5, padx=5)
+stat4_in.bind("<Tab>", focus_next_widget)
+stat4_in.bind('<Return>', test2)
+
+stat5 = Label(pre_stats,text="Wep ATT:",background="#f7dfdc")
+stat5.grid(column=0,row=4,padx=5, pady=5)
+stat5_in = Text(pre_stats,height=0, width=8)
+stat5_in.grid(column=1, row=4,pady=5, padx=5)
+stat5_in.bind("<Tab>", focus_next_widget)
+stat5_in.bind('<Return>', test2)
+
+stat6 = Label(pre_stats,text="Mag ATT:",background="#f7dfdc")
+stat6.grid(column=0,row=5,padx=5, pady=5)
+stat6_in = Text(pre_stats,height=0, width=8)
+stat6_in.grid(column=1, row=5,pady=5, padx=5)
+stat6_in.bind("<Tab>", focus_next_widget)
+stat6_in.bind('<Return>', test2)
+
+calc_stats = Button(pre_stats, text="Calculate", command=calc_stats)
+calc_stats.grid(column=1, row=6,pady=5, padx=5)
+
+post_stat1 = Label(post_stats,text="STR:",background="#f7dfdc")
+post_stat1.grid(column=0,row=0,padx=5, pady=5)
+post_stat1_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat1_val.grid(column=1,row=0,padx=5, pady=5)
+
+post_stat2 = Label(post_stats,text="DEX:",background="#f7dfdc")
+post_stat2.grid(column=0,row=1,padx=5, pady=5)
+post_stat2_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat2_val.grid(column=1,row=1,padx=5, pady=5)
+
+post_stat3 = Label(post_stats,text="INT:",background="#f7dfdc")
+post_stat3.grid(column=0,row=2,padx=5, pady=5)
+post_stat3_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat3_val.grid(column=1,row=2,padx=5, pady=5)
+
+post_stat4 = Label(post_stats,text="LUK:",background="#f7dfdc")
+post_stat4.grid(column=0,row=3,padx=5, pady=5)
+post_stat4_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat4_val.grid(column=1,row=3,padx=5, pady=5)
+
+post_stat5 = Label(post_stats,text="Wep ATT:",background="#f7dfdc")
+post_stat5.grid(column=0,row=4,padx=5, pady=5)
+post_stat5_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat5_val.grid(column=1,row=4,padx=5, pady=5)
+
+post_stat6 = Label(post_stats,text="Mag ATT:",background="#f7dfdc")
+post_stat6.grid(column=0,row=5,padx=5, pady=5)
+post_stat6_val = Label(post_stats,text="0",background="#f7dfdc")
+post_stat6_val.grid(column=1,row=5,padx=5, pady=5)
 
 
 def createtier1():
