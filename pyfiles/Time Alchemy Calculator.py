@@ -650,6 +650,7 @@ scrollbar3 = Scrollbar(frame8, orient="vertical",command=lb3.yview)
 scrollbar3.pack(side="right", fill="y")
 lb3.config(yscrollcommand=scrollbar3.set)
 lb3.bind('<<ListboxSelect>>', onselect)
+lb3.bind('<Double-Button>', breakdown)
 
 rawframe=LabelFrame(master3_sub4, text="Raw Functions",font=("Helvetica", 10))
 rawframe.grid(padx=5, pady=5,sticky='wesn')
