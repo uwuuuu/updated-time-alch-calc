@@ -1,10 +1,23 @@
 # Kastia Time Alchemy Calculator
 
+This is an updated version of jason-sees's TA calculator. His original source can be found here: https://github.com/jason-sees/time-alch-calc
+
+Up to date as of v69b.
+
+
+### To Run
+
 1. Install Python (I recommend 3.6+) from: https://www.python.org/downloads/
-2. Clone/Download https://github.com/jason-sees/time-alch-calc
+2. Clone/Download https://github.com/uwuuuu/updated-time-alch-calc
 3. Extract the pyfiles folder onto your desktop (or other location)
 4. Double click 'Time Alchemy Calculator.py'
 
-Link to the compiled .exe file (No Python download): https://github.com/jason-sees/time-alch-calc/tree/exe-file
+Alternately, here's an exe 
 
-***Note: This program is free to use, and always will be. This is the only place where you will be able to download a version from me. I do not own any other version other than the one that you see here. This program is not intended to provide an unfair advantage to anyone, but rather provide convenience as crafting multiple catalysts/materials can be a pain sometimes.***
+### FAQ
+
+1. The vitality shard picture is wrong.
+A: Yes, I know. Won't fix.
+
+2. X recipe is wrong, please fix!
+A: Let me know and I'll get around to it, maybe.
