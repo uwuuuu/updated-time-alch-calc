@@ -12,7 +12,7 @@ Up to date as of v69b.
 3. Extract the pyfiles folder onto your desktop (or other location)
 4. Double click 'Time Alchemy Calculator.py'
 
-Alternately, here's an exe 
+Alternately, here's an exe https://github.com/uwuuuu/updated-time-alch-calc/releases/download/v1.0/Time.Alchemy.Calculator.exe
 
 ### FAQ
 
