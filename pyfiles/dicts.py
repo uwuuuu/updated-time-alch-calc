@@ -16,7 +16,7 @@ per_cata={"Dark Soul Stone":"WATT,0.06","Ice Crystal":"MATT,0.06","Blood Ruby":"
 sub_base = ['NX Cash', 'Twisted Time', 'Mana Crystal', 'Depleted Crystal', 'Viridium Plate', 'Elixir of Haste', 'Elixir of Purity',
             'Confusion Fragment', 'Gold Plate', 'Dream Fragment', 'Superior Item Crystal', 'Elixir of Caution', 'Elixir of Rage',
             'Chaos Scroll 60%', 'Lidium', 'Forever Unrelenting Flame', 'White Crystal', 'DEX Crystal', 'Brilliant Dusk Essence',
-            "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Garnet', 'Topaz', 'Herb Root', 'Moon Rock',
+            "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Garnet', 'Topaz', 'Vitality Enhancement Shard', 'Moon Rock',
             'Grand Spell Essence', 'Rock of Time', 'Diamond', 'Piece of Time', 'Power Crystal', 'Primal Essence', 'Alchemist Stone',
             'Viridium Plate', 'Unrelenting Flame', 'Amethyst', 'Black Scroll (Level 2)', 'Black Scroll (Level 1)', 'Aquamarine',
             'Sealed Saint Stone', 'Star Rock', 'Patchouli Flower Oil', 'Patchouli Seed Oil', 'Wisdom Crystal', 'Black Crystal',
@@ -29,7 +29,7 @@ master=['Gold Plate', 'Lidium', 'Patchouli Flower Oil', 'Patchouli Seed Oil', 'W
         'Steel Plate', 'Mithril Plate', 'Adamantium Plate', 'Silver Plate', 'Orihalcon Plate', 'Fine Spell Essence', 'Hyssop Flower Oil', 'Juniper Berry Seed Oil',
         'Juniper Berry Flower Oil', 'NX Cash', 'Twisted Time', 'Mana Crystal', 'Depleted Crystal', 'Viridium Plate', 'Elixir of Haste', 'Elixir of Purity',
         'Confusion Fragment', 'Dream Fragment', 'Superior Item Crystal', 'Elixir of Caution', 'Elixir of Rage', 'Chaos Scroll 60%', 'Forever Unrelenting Flame',
-        'White Crystal', 'Brilliant Dusk Essence', "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Herb Root', 'Moon Rock', 'Grand Spell Essence',
+        'White Crystal', 'Brilliant Dusk Essence', "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Vitality Enhancement Shard', 'Moon Rock', 'Grand Spell Essence',
         'Rock of Time', 'Piece of Time', 'Primal Essence', 'Alchemist Stone', 'Viridium Plate', 'Unrelenting Flame', 'Black Scroll (Level 2)','Black Scroll (Level 1)', 'Sealed Saint Stone', 'Star Rock',
         'Basic Spell Essence', 'Scroll of Secrets', 'Sealed Warrior Stone', 'The Magic Rock', 'Dusk Essence', "Philosopher's Stone", 'Sealed Wiseman Stone','Meso']
 
@@ -39,7 +39,7 @@ master=['Gold Plate', 'Lidium', 'Patchouli Flower Oil', 'Patchouli Seed Oil', 'W
         'Steel Plate', 'Mithril Plate', 'Adamantium Plate', 'Silver Plate', 'Orihalcon Plate', 'Fine Spell Essence', 'Hyssop Flower Oil', 'Juniper Berry Seed Oil',
         'Juniper Berry Flower Oil', 'NX Cash', 'Twisted Time', 'Mana Crystal', 'Depleted Crystal', 'Viridium Plate', 'Elixir of Haste', 'Elixir of Purity',
         'Confusion Fragment', 'Dream Fragment', 'Superior Item Crystal', 'Elixir of Caution', 'Elixir of Rage', 'Chaos Scroll 60%', 'Forever Unrelenting Flame',
-        'White Crystal', 'Brilliant Dusk Essence', "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Herb Root', 'Moon Rock', 'Grand Spell Essence',
+        'White Crystal', 'Brilliant Dusk Essence', "Philosopher's Stone", 'Black Scroll (Level 3)', 'Dream Stone', 'Vitality Enhancement Shard', 'Moon Rock', 'Grand Spell Essence',
         'Rock of Time', 'Piece of Time', 'Primal Essence', 'Alchemist Stone', 'Viridium Plate', 'Unrelenting Flame', 'Black Scroll (Level 2)','Black Scroll (Level 1)', 'Sealed Saint Stone', 'Star Rock',
         'Basic Spell Essence', 'Scroll of Secrets', 'Sealed Warrior Stone', 'The Magic Rock', 'Dusk Essence', "Philosopher's Stone", 'Sealed Wiseman Stone','Meso','Viridium Ore']
 
@@ -51,13 +51,13 @@ materials_dict = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior M
                   'Rock of Time':"Piece of Time,25|Elixir of Purity,1",
                 'Fine Spell Essence':"Basic Spell Essence,2|Depleted Crystal,2|Mana Crystal,2|NX Cash,20000",
                   'Grand Spell Essence':"Fine Spell Essence,2|Depleted Crystal,3|Mana Crystal,3|NX Cash,80000",
-            'Dusk Essence':"Mana Crystal,8|Hyssop Flower Oil,1|Elixir of Purity,1|NX Cash,200000",                  
-             'Brilliant Dusk Essence':"Dusk Essence,5|Grand Spell Essence,3|Elixir of Purity,1|NX Cash,500000",
+            'Dusk Essence':"Mana Crystal,16|Hyssop Flower,2|Grand Spell Essence,2|Meso,5000000",                  
+             'Brilliant Dusk Essence':"Dusk Essence,5|Grand Spell Essence,3|Elixir of Purity,1|Meso,25000000",
                   'Forever Unrelenting Flame':"Unrelenting Flame,5|Twisted Time,50|Elixir of Purity,1|NX Cash,500000",
              'Black Scroll (Level 2)':"Black Scroll (Level 1),3|Elixir of Purity,2|Meso,4000000|NX Cash,400000",
              'Black Scroll (Level 3)':"Black Scroll (Level 2),3|Elixir of Purity,5|Meso,30000000|NX Cash,3000000",
             'Scroll of Secrets':"Black Scroll (Level 3),2|Elixir of Purity,18|Meso,100000000|NX Cash,10000000",
-             'Sealed Wiseman Stone':"Depleted Crystal,100|Mana Crystal,200|Grand Spell Essence,12|Wisdom Crystal,15|Hyssop Flower Oil,6|Brilliant Dusk Essence,5|Dream Fragment,70|Primal Essence,3|Philosopher's Stone,4|Rock of Time,27|NX Cash,3000000"}
+             'Sealed Wiseman Stone':"Depleted Crystal,100|Mana Crystal,200|Grand Spell Essence,12|Wisdom Crystal,15|Hyssop Flower Oil,4|Brilliant Dusk Essence,5|Dream Fragment,70|Primal Essence,2|Philosopher's Stone,4|Rock of Time,27|NX Cash,3000000"}
 
 ##for item in materials_dict:
 ##    x1 = materials_dict[item].split("|")
@@ -74,7 +74,7 @@ materials_dict = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior M
 ##if item 
 
 rawest = ['Black Scroll (Level 1)', 'Elixir of Purity', 'Basic Spell Essence', 'Depleted Crystal', 'Mana Crystal', 'Twisted Time', 'Piece of Time',
-          'Herb Root', 'The Magic Rock', 'Alchemist Stone', 'Unrelenting Flame', 'Confusion Fragment', "Philosopher's Stone", 'Dream Fragment',
+          'Vitality Enhancement Shard', 'The Magic Rock', 'Alchemist Stone', 'Unrelenting Flame', 'Confusion Fragment', "Philosopher's Stone", 'Dream Fragment',
           'Primal Essence', 'Elixir of Caution', 'Elixir of Rage', 'NX Cash', 'Sealed Warrior Stone', 'Chaos Scroll 60%', 'Elixir of Haste',
           'Sealed Saint Stone', 'Superior Item Crystal', 'Viridium Ore', 'Superior Mold', 'Meso', 'Gold Ore', 'Intermediate Mold',
           'Lidium Ore', 'Patchouli Flower', 'Advanced Herb Oil Bottle', 'Patchouli Seed', 'Wisdom Crystal Ore',
@@ -86,7 +86,7 @@ rawest = ['Black Scroll (Level 1)', 'Elixir of Purity', 'Basic Spell Essence', '
 sub_base2 = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior Mold,1|NX Cash,50000",
              'Forever Unrelenting Flame':"Unrelenting Flame,5|Twisted Time,50|Elixir of Purity,1|NX Cash,500000",
              'White Crystal':"Power Crystal,2|Wisdom Crystal,2|DEX Crystal,2|LUK Crystal,2|Dark Crystal,2",
-             'Brilliant Dusk Essence':"Dusk Essence,5|Grand Spell Essence,3|Elixir of Purity,1|NX Cash,500000",
+             'Brilliant Dusk Essence':"Dusk Essence,5|Grand Spell Essence,3|Elixir of Purity,1|Meso,25000000",
              'Black Scroll (Level 3)':"Black Scroll (Level 2),3|Elixir of Purity,5|Meso,30000000|NX Cash,3000000",
              'Dream Stone':"Dream Fragment,16|Depleted Crystal,3|Elixir of Purity,1",
              'Moon Rock':"Bronze Plate,3|Steel Plate,3|Mithril Plate,3|Adamantium Plate,3|Silver Plate,3|Orihalcon Plate,3|Gold Plate,3|Elixir of Purity,1",
@@ -95,8 +95,8 @@ sub_base2 = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior Mold,1
              'Black Scroll (Level 2)':"Black Scroll (Level 1),3|Elixir of Purity,2|Meso,4000000|NX Cash,400000",
             'Star Rock':"Garnet,3|Amethyst,3|Aquamarine,3|Emerald,3|Opal,3|Sapphire,3|Topaz,3|Diamond,3|Elixir of Purity,1",
             'Scroll of Secrets':"Black Scroll (Level 3),2|Elixir of Purity,18|Meso,100000000|NX Cash,10000000",
-            'Dusk Essence':"Mana Crystal,8|Hyssop Flower Oil,1|Elixir of Purity,1|NX Cash,200000",
-             'Sealed Wiseman Stone':"Depleted Crystal,100|Mana Crystal,200|Grand Spell Essence,12|Wisdom Crystal,15|Hyssop Flower Oil,6|Brilliant Dusk Essence,5|Dream Fragment,70|Primal Essence,3|Philosopher's Stone,4|Rock of Time,27|NX Cash,3000000"}
+            'Dusk Essence':"Mana Crystal,16|Hyssop Flower,2|Grand Spell Essence,2|Meso,5000000",
+             'Sealed Wiseman Stone':"Depleted Crystal,100|Mana Crystal,200|Grand Spell Essence,12|Wisdom Crystal,15|Hyssop Flower Oil,4|Brilliant Dusk Essence,5|Dream Fragment,70|Primal Essence,2|Philosopher's Stone,4|Rock of Time,27|NX Cash,3000000"}
 
 craftables = {'Gold Plate':"Gold Ore,4|Intermediate Mold,1",
               'Lidium':"Lidium Ore,6|Superior Mold,1",
@@ -158,21 +158,21 @@ desc = {'Blue Emerald':"Success Rate: +4\nMax Per Item: 2\nCan be used on any eq
 	"Rock of Time":"25x Piece of Time\n1x Elixir of Purity",
 	"Fine Spell Essence":"2x Basic Spell Essence\n2x Depleted Crystal\n2x Mana Crystal\n20,000x NX Cash",
 	"Grand Spell Essence":"2x Fine Spell Essence\n3x Depleted Crystal\n3x Mana Crystal\n80,000x NX Cash",
-	"Dusk Essence":"8x Mana Crystal\n1x Hyssop Flower Oil\n1x Elixir of Purity\n200,000x NX Cash",
-	"Brilliant Dusk Essence":"5x Dusk Essence\n3x Grand Spell Essence\n1x Elixir of Purity\n500,000x NX Cash",
+	"Dusk Essence":"16x Mana Crystal\n2x Hyssop Flower\n2x Grand Spell Essence\n5,000,000x Meso",
+	"Brilliant Dusk Essence":"5x Dusk Essence\n3x Grand Spell Essence\n1x Elixir of Purity\n25,000,000x Meso",
 	"Forever Unrelenting Flame":"5x Unrelenting Flame\n50x Twisted Time\n1x Elixir of Purity\n500,000x NX Cash",
 	"Black Scroll (Level 2)":"3x Black Scroll (Level 1)\n2x Elixir of Purity\n4,000,000x Meso\n400,000x NX Cash",
 	"Black Scroll (Level 3)":"3x Black Scroll (Level 2)\n5x Elixir of Purity\n30,000,000x Meso\n3,000,000x NX Cash",
 	"Scroll of Secrets":"2x Black Scroll (Level 3)\n18x Elixir of Purity\n100,000,000x Meso\n10,000,000x NX Cash",
-	"Sealed Wiseman Stone":"100x Depleted Crystal\n200x Mana Crystal\n12x Grand Spell Essence\n15x Wisdom Crystal\n6x Hyssop Flower Oil\n5x Brilliant Dusk Essence\n70x Dream Fragment\n3x Primal Essence\n4x Philosopher's Stone\n27x Rock of Time\n3,000,000x NX Cash"
+	"Sealed Wiseman Stone":"100x Depleted Crystal\n200x Mana Crystal\n12x Grand Spell Essence\n15x Wisdom Crystal\n4x Hyssop Flower Oil\n5x Brilliant Dusk Essence\n70x Dream Fragment\n2x Primal Essence\n4x Philosopher's Stone\n27x Rock of Time\n3,000,000x NX Cash"
         }
 
 
-tier1cost={"Blue Emerald":"Black Scroll (Level 1),1|Opal,3|Sapphire,3|Aquamarine,3|Emerald,3|Elixir of Purity,1",
+tier1cost={"Blue Emerald":"Black Scroll (Level 1),1|Opal,3|Sapphire,3|Aquamarine,2|Emerald,2|Elixir of Purity,1",
            "Droplet of Strength":"Black Scroll (Level 1),1|Power Crystal,2|Basic Spell Essence,3|Elixir of Purity,1",
-           "Mana Shard":"Black Scroll (Level 1),1|Wisdom Crystal,2|Depleted Crystal,3|Mana Crystal,4",
+           "Mana Shard":"Black Scroll (Level 1),1|Wisdom Crystal,2|Depleted Crystal,2|Mana Crystal,4",
            "Time Sand":"Black Scroll (Level 1),1|Power Crystal,1|Wisdom Crystal,1|DEX Crystal,1|LUK Crystal,1|Twisted Time,50|Piece of Time,10|Elixir of Purity,1",
-           "Stamina Elixir":"Black Scroll (Level 1),1|Herb Root,12|The Magic Rock,2|Alchemist Stone,8|Elixir of Purity,1"}
+           "Stamina Elixir":"Black Scroll (Level 1),1|Vitality Enhancement Shard,7|The Magic Rock,2|Alchemist Stone,8|Elixir of Purity,1"}
 tier2cost={"Life Essence":"Black Scroll (Level 2),1|Blue Emerald,2|Depleted Crystal,4|Dusk Essence,1|Elixir of Purity,1",
            'Wind Crystal':'Black Scroll (Level 2),1|DEX Crystal,4|Dusk Essence,1|Depleted Crystal,5|Blue Emerald,2|Elixir of Purity,2',
            'Dark Soul Stone':'Black Scroll (Level 2),1|Black Crystal,3|Droplet of Strength,4|Unrelenting Flame,2|Elixir of Purity,2',
