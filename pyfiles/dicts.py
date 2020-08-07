@@ -76,15 +76,9 @@ materials_dict = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior M
 rawest = ['Black Scroll (Level 1)', 'Elixir of Purity', 'Basic Spell Essence', 'Depleted Crystal', 'Mana Crystal', 'Twisted Time', 'Piece of Time',
           'Vitality Enhancement Shard', 'The Magic Rock', 'Alchemist Stone', 'Unrelenting Flame', 'Confusion Fragment', "Philosopher's Stone", 'Dream Fragment',
           'Primal Essence', 'Elixir of Caution', 'Elixir of Rage', 'NX Cash', 'Sealed Warrior Stone', 'Chaos Scroll 60%', 'Elixir of Haste',
-          'Sealed Saint Stone', 'Superior Item Crystal', 'Viridium Ore', 'Superior Mold', 'Meso', 'Gold Ore', 'Intermediate Mold',
-          'Lidium Ore', 'Patchouli Flower', 'Advanced Herb Oil Bottle', 'Patchouli Seed', 'Wisdom Crystal Ore',
-          'Black Crystal Ore', 'Advanced Mold', 'DEX Crystal Ore', 'Opal Ore', 'Basic Mold', 'Sapphire Ore', 'Emerald Ore', 'LUK Crystal Ore',
-          'Garnet Ore', 'Topaz Ore', 'Diamond Ore', 'Power Crystal Ore', 'Amethyst Ore', 'Aquamarine Ore', 'Dark Crystal Ore', 'Bronze Ore',
-          'Steel Ore', 'Mithril Ore', 'Adamantium Ore', 'Silver Ore', 'Orihalcon Ore', 'Hyssop Flower', 'Superior Herb Oil Bottle',
-          'Juniper Berry Seed', 'Juniper Berry Flower']
+          'Sealed Saint Stone', 'Superior Item Crystal', 'Viridium Ore', 'Superior Mold', 'Meso','Hyssop Flower', 'Hyssop Flower Oil', 'Dusk Essence', 'Viridium Plate']
 
-sub_base2 = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior Mold,1|NX Cash,50000",
-             'Forever Unrelenting Flame':"Unrelenting Flame,5|Twisted Time,50|Elixir of Purity,1|NX Cash,500000",
+sub_base2 = {'Forever Unrelenting Flame':"Unrelenting Flame,5|Twisted Time,50|Elixir of Purity,1|NX Cash,500000",
              'White Crystal':"Power Crystal,2|Wisdom Crystal,2|DEX Crystal,2|LUK Crystal,2|Dark Crystal,2",
              'Brilliant Dusk Essence':"Dusk Essence,5|Grand Spell Essence,3|Elixir of Purity,1|Meso,25000000",
              'Black Scroll (Level 3)':"Black Scroll (Level 2),3|Elixir of Purity,5|Meso,30000000|NX Cash,3000000",
@@ -95,30 +89,9 @@ sub_base2 = {'Viridium Plate':"Viridium Ore,4|Elixir of Purity,1|Superior Mold,1
              'Black Scroll (Level 2)':"Black Scroll (Level 1),3|Elixir of Purity,2|Meso,4000000|NX Cash,400000",
             'Star Rock':"Garnet,3|Amethyst,3|Aquamarine,3|Emerald,3|Opal,3|Sapphire,3|Topaz,3|Diamond,3|Elixir of Purity,1",
             'Scroll of Secrets':"Black Scroll (Level 3),2|Elixir of Purity,18|Meso,100000000|NX Cash,10000000",
-            'Dusk Essence':"Mana Crystal,16|Hyssop Flower,2|Grand Spell Essence,2|Meso,5000000",
              'Sealed Wiseman Stone':"Depleted Crystal,100|Mana Crystal,200|Grand Spell Essence,12|Wisdom Crystal,15|Hyssop Flower Oil,4|Brilliant Dusk Essence,5|Dream Fragment,70|Primal Essence,2|Philosopher's Stone,4|Rock of Time,27|NX Cash,3000000"}
 
-craftables = {'Gold Plate':"Gold Ore,4|Intermediate Mold,1",
-              'Lidium':"Lidium Ore,6|Superior Mold,1",
-              'Patchouli Flower Oil':"Patchouli Flower,6|Advanced Herb Oil Bottle,1",
-              'Patchouli Seed Oil':"Patchouli Seed,6|Advanced Herb Oil Bottle,1",
-              'Wisdom Crystal':"Wisdom Crystal Ore,6|Superior Mold,1", 'Black Crystal':"Black Crystal Ore,6|Advanced Mold,1",
-             'DEX Crystal':"DEX Crystal Ore,4|Intermediate Mold,1",'Opal':"Opal Ore,2|Basic Mold,1", 'Sapphire':"Sapphire Ore,3|Basic Mold,1",
-              'Emerald':"Emerald Ore,4|Intermediate Mold,1", 'LUK Crystal':"LUK Crystal Ore,6|Superior Mold,1",
-             'Garnet':"Garnet Ore,5|Advanced Mold,1", 'Topaz':"Topaz Ore,4|Intermediate Mold,1",
-              'Diamond':"Diamond Ore,5|Advanced Mold,1", 'Power Crystal':"Power Crystal Ore,5|Advanced Mold,1",
-              'Amethyst':"Amethyst Ore,2|Basic Mold,1", 'Aquamarine':"Aquamarine Ore,5|Advanced Mold,1",
-              'Dark Crystal':"Dark Crystal Ore,6|Advanced Mold,1",
-        'Bronze Plate':"Bronze Ore,3|Intermediate Mold,1",
-        'Steel Plate':"Steel Ore,3|Basic Mold,1",
-        'Mithril Plate':"Mithril Ore,4|Intermediate Mold,1",
-        'Adamantium Plate':"Adamantium Ore,3|Intermediate Mold,1",
-        'Silver Plate':"Silver Ore,2|Basic Mold,1",
-        'Orihalcon Plate':"Orihalcon Ore,2|Basic Mold,1",
-        'Fine Spell Essence':"Basic Spell Essence,2|Depleted Crystal,2|Mana Crystal,2|NX Cash,20000",
-              'Hyssop Flower Oil':"Hyssop Flower,6|Superior Herb Oil Bottle,1",
-              'Juniper Berry Seed Oil':"Juniper Berry Seed,6|Superior Herb Oil Bottle,1",
-              'Juniper Berry Flower Oil':"Juniper Berry Flower,6|Superior Herb Oil Bottle,1"}
+craftables = {'Fine Spell Essence':"Basic Spell Essence,2|Depleted Crystal,2|Mana Crystal,2|NX Cash,20000"}
 
 desc = {'Blue Emerald':"Success Rate: +4\nMax Per Item: 2\nCan be used on any equipment",
         'Droplet of Strength':"Weapon Attack: +6\nSuccess Rate: -3\nMax Per Item: 5\nCan only be used on weapons",
