@@ -2,7 +2,7 @@
 
 This is an updated version of jason-sees's TA calculator. His original source can be found here: https://github.com/jason-sees/time-alch-calc
 
-Up to date as of v69b.
+Up to date as of v70b.
 
 ### Updates
 
