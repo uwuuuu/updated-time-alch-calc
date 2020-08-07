@@ -4,6 +4,9 @@ This is an updated version of jason-sees's TA calculator. His original source ca
 
 Up to date as of v69b.
 
+### Updates
+
+v1.1: Condense function is now realistically usable. Condense has been updated to not separate plates/crystals/oils into ores/seeds/flowers. Also, Dusk Essences are not separated any further.
 
 ### To Run
 
